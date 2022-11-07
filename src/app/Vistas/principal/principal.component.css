@@ -1,0 +1,26 @@
+span{
+    color: #d83542;
+  }
+  
+  .container{
+    width: 100%;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+  
+  .texto{
+    width: 80%;
+    padding-left: 10%;
+  }
+  
+  .textoIntermedio .parrafo b{
+      color: #000;
+      font-size: 40px;
+  }
+  
+  .textoIntermedio .parrafo .plasticaribe_resaltado{
+      color: #d83542;
+      height: 100px;
+      font-size: 40px;
+  }
+  

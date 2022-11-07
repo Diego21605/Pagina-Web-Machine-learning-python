@@ -1,0 +1,58 @@
+<!-- Navegador parte superior -->
+<app-inicio></app-inicio>
+
+<div class="d-flex justify-content-center overlay" *ngIf="!load">
+  <div class="spinner-border text-danger" role="status" style="margin: auto;">
+    <span class="visually-hidden">Cargando...</span>
+  </div>
+</div>
+
+<div class="contain">
+  <!--  fin Navegador de parte superior -->
+
+  <div class="container-fluid">
+    <div class="mb-4 Titulo">
+      <h2 class="tituloRojo">Sistema de Reglas</h2>
+    </div>
+    <div class="mb-4">
+      <hr class="colorLinea">
+    </div>
+
+    <div class="container">
+      <div class="mb-4">
+        <h4 class="tituloRojo">Llenar los campos correspondientes</h4>
+      </div>
+      <!-- Inicio formulario Estado OT -->
+      <form [formGroup]="formularioSR">
+        <!-- Inicio fila 1 de campos -->
+        <div class="mb-4">
+          <div class="row g-3">
+            
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <div class="row g-3">
+          </div>
+        </div>
+        <!-- Fin fila 1 de campos -->
+
+        <!-- Botones para consultar OT -->
+        <div class="mb-3">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button class="btn btn-danger btn-danger-sm" type="button">Consultar</button>
+            <button class="btn btn-secondary btn-secondary-sm" type="button">Limpiar campos</button>
+            <button class="btn btn-danger btn-danger-sm" type="button">Exportar A Excel</button>
+          </div>
+        </div>
+      </form>
+      <!--Fin Formulario -->
+
+      <div class="mb-4">
+        <hr class="colorLinea">
+      </div>
+
+    </div>
+  </div>
+
+</div>
