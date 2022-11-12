@@ -28,6 +28,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import {SelectButtonModule} from 'primeng/selectbutton';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InicioComponent } from './Vistas/inicio/inicio.component';
@@ -89,6 +90,8 @@ export const routes: Routes = [
     InputNumberModule,
     ConfirmDialogModule,
     InputTextareaModule,
+    ReactiveFormsModule,
+    SelectButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

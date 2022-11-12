@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sistema-reglas',
@@ -10,18 +10,26 @@ export class SistemaReglasComponent implements OnInit {
 
   formularioSR !: FormGroup;
   load : boolean = true;
+  city : string = '';
+  stateOptions: any[] = [];
+  value1 : number = 0;
 
-  constructor() { }
+  constructor(private frmBuilder : FormBuilder) {
+    this.formularioSR = this.frmBuilder.group({
+      Respiratorio : [null], 
+      Respiratorio1 : [null], 
+    });
+  }
 
   ngOnInit(): void {
+    this.stateOptions = [
+      { label: 'Si', value: 1 },
+      { label: 'No', value: 2 },
+    ];
   }
 
-  exportToExcel(){
-
-  }
-
-  crearPDf(){
-    
+  cambio(){
+    console.log()
   }
 
 }

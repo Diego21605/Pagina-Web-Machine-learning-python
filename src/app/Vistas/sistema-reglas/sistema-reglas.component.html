@@ -24,25 +24,39 @@
       </div>
       <!-- Inicio formulario Estado OT -->
       <form [formGroup]="formularioSR">
-        <!-- Inicio fila 1 de campos -->
-        <div class="mb-4">
-          <div class="row g-3">
-            
-          </div>
+        <div class="row content-questions">
+          <div class="centrar">
+            <!-- Problemas respiratorios -----------Pregunta 1 -->
+            <label>¿Tiene problemas respiratorios?</label>
+            <p-selectButton formControlName="Respiratorio" [options]="stateOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"></p-selectButton>    
+          </div> 
+          <div class="centrar">
+            <!-- Problemas respiratorios -----------Pregunta 1 -->
+            <label>¿Tiene problemas respiratorios?</label>
+            <p-selectButton formControlName="Respiratorio" [options]="stateOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"></p-selectButton>    
+          </div> 
+          <div class="centrar">
+            <!-- Problemas respiratorios -----------Pregunta 1 -->
+            <label>¿Tiene problemas respiratorios?</label>
+            <p-selectButton formControlName="Respiratorio" [options]="stateOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"></p-selectButton>    
+          </div> 
+          <div class="centrar">
+            <!-- Problemas respiratorios -----------Pregunta 1 -->
+            <label>¿Tiene problemas respiratorios?</label>
+            <p-selectButton formControlName="Respiratorio" [options]="stateOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"></p-selectButton>    
+          </div> 
+          <div class="centrar">
+            <!-- Problemas respiratorios -----------Pregunta 1 -->
+            <label>¿Tiene problemas respiratorios?</label>
+            <p-selectButton formControlName="Respiratorio" [options]="stateOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"></p-selectButton>    
+          </div>          
         </div>
-
-        <div class="mb-4">
-          <div class="row g-3">
-          </div>
-        </div>
-        <!-- Fin fila 1 de campos -->
 
         <!-- Botones para consultar OT -->
-        <div class="mb-3">
+        <div class="mb-3" style="text-align: center;">
           <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-            <button class="btn btn-danger btn-danger-sm" type="button">Consultar</button>
-            <button class="btn btn-secondary btn-secondary-sm" type="button">Limpiar campos</button>
-            <button class="btn btn-danger btn-danger-sm" type="button">Exportar A Excel</button>
+            <button pButton pRipple type="button" class="p-button-raised" style="margin-right: 3%;">Consultar</button>
+            <button pButton pRipple type="button" class="p-button-raised p-button-secondary">Limpiar campos</button>
           </div>
         </div>
       </form>
