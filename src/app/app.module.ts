@@ -37,7 +37,7 @@ import { SistemaReglasComponent } from './Vistas/sistema-reglas/sistema-reglas.c
 import { HttpClientModule } from '@angular/common/http';
 
 export const routes: Routes = [
-  {path: '', component: InicioComponent},
+  {path: '', component: PrincipalComponent},
   {path: 'home', component: PrincipalComponent},
   {path: 'sistema-reglas', component: SistemaReglasComponent},
 ];
