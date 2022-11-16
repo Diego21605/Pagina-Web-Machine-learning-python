@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SistemaReglasService } from 'src/app/Servicios/sistema-reglas.service';
 
 @Component({
   selector: 'app-sistema-reglas',
@@ -17,7 +18,8 @@ export class SistemaReglasComponent implements OnInit {
   value4 : number = 0;
   value5 : number = 0;
 
-  constructor(private frmBuilder : FormBuilder) {
+  constructor(private frmBuilder : FormBuilder,
+                private sistemaReglasService : SistemaReglasService) {
     this.formularioSR = this.frmBuilder.group({
       Respiratorio : [null], 
       fatiga : [null],
@@ -43,8 +45,15 @@ export class SistemaReglasComponent implements OnInit {
     this.value5 = 0;
   }
 
-  cambio(){
-    console.log()
+  consultar(){
+    console.log(this.value1)
+    console.log(this.value2)
+    console.log(this.value3)
+    console.log(this.value4)
+    console.log(this.value5)
+    this.sistemaReglasService.sistemaReglas(this.value1, this.value2, this.value3, this.value4, this.value5).subscribe(datos_sr => {
+
+    });
   }
 
 }
