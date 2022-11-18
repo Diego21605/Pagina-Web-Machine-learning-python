@@ -91,29 +91,7 @@ export class PrediccionComponent implements OnInit {
   }
 
   consultar(){
-    let info : any = [
-      this.totalBateria,
-      this.bluetooth ,
-      this.procesador ,
-      this.dualSim ,
-      this.mgPixelesFront ,
-      this.tecnology4G ,
-      this.internalMemory ,
-      this.m_dep ,
-      this.peso_Telefono ,
-      this.number_cores ,
-      this.mgPixelesPrimeary ,
-      this.px_height ,
-      this.px_widht ,
-      this.ram_memory ,
-      this.sc_h ,
-      this.sc_w ,
-      this.time_charger ,
-      this.tecnologia_3g ,
-      this.pantalla_tactil ,
-      this.wifi ,
-    ];
-    this.predictService.getAllTrainPredict(info).subscribe(datos_prediccion => {
+    this.predictService.getAllTrainPredict(this.totalBateria, this.bluetooth, this.procesador, this.dualSim, this.mgPixelesFront, this.tecnology4G, this.internalMemory, this.m_dep, this.peso_Telefono, this.number_cores, this.mgPixelesPrimeary, this.px_height, this.px_widht, this.ram_memory, this.sc_h, this.sc_w, this.time_charger, this.tecnologia_3g, this.pantalla_tactil, this.wifi).subscribe(datos_prediccion => {
       setTimeout(() => {
         let data : any = {
           Fecha : this.today,
@@ -141,7 +119,7 @@ export class PrediccionComponent implements OnInit {
           Precio : 1,
         }
         this.predictService.add_Predict(data).subscribe(datos => {
-          Swal.fire(datos.informacion);
+          Swal.fire(`${datos_prediccion} `+datos.informacion);
           this.limpiarCampos();
         }, error => Swal.fire(error.informacion));
       }, 3000);

@@ -149,8 +149,7 @@
           <!-- Tiene tecnologia 3G -->
           <div class="field col-12 md:col-3 centrar">
             <label for="integeronly"><br><br>¿Tiene tecnologia 3G?<br><br></label>
-            <p-inputNumber inputId="integeronly" [(ngModel)]="tecnologia_3g">
-            </p-inputNumber>
+            <p-selectButton formControlName="Respiratorio" [options]="stateOptions" [(ngModel)]="tecnologia_3g" optionLabel="label" optionValue="value"></p-selectButton>    
           </div>
 
           <!-- Pantalla tactil -->
