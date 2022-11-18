@@ -28,26 +28,26 @@
           <div class="centrar">
             <!-- Problemas respiratorios -----------Pregunta 1 -->
             <label>¿Tiene problemas respiratorios?<br><br><br></label>
-            <p-selectButton formControlName="Respiratorio" [options]="stateOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"></p-selectButton>    
+            <p-selectButton formControlName="Respiratorio" [options]="stateOptions" [(ngModel)]="v_respiratorio" optionLabel="label" optionValue="value"></p-selectButton>    
           </div> 
           <div class="centrar">
             <!-- Problemas respiratorios -----------Pregunta 1 -->
             <label>¿Tiene fatiga?<br><br><br></label>
-            <p-selectButton formControlName="fatiga" [options]="stateOptions" [(ngModel)]="value2" optionLabel="label" optionValue="value"></p-selectButton>    
+            <p-selectButton formControlName="fatiga" [options]="stateOptions" [(ngModel)]="v_fatiga" optionLabel="label" optionValue="value"></p-selectButton>    
           </div> 
           <div class="centrar">
             <label>Del 1 al 5 ¿Qué tanto dolor articular tiene?<br><br></label>
-            <p-inputNumber formControlName="dolorArticular" [(ngModel)]="value5" [showButtons]="true" inputId="minmax-buttons" [min]="1" [max]="5"> </p-inputNumber>
+            <p-inputNumber formControlName="dolorArticular" [(ngModel)]="v_dolorArticular" [showButtons]="true" inputId="minmax-buttons" [min]="1" [max]="5"> </p-inputNumber>
           </div>
           <div class="centrar">
             <!-- Problemas respiratorios -----------Pregunta 1 -->
             <label>¿Tiene el cuello hinchado?<br><br><br></label>
-            <p-selectButton formControlName="cuelloHinchado" [options]="stateOptions" [(ngModel)]="value3" optionLabel="label" optionValue="value"></p-selectButton>    
+            <p-selectButton formControlName="cuelloHinchado" [options]="stateOptions" [(ngModel)]="v_cuelloHinchado" optionLabel="label" optionValue="value"></p-selectButton>    
           </div> 
           <div class="centrar">
             <!-- Problemas respiratorios -----------Pregunta 1 -->
             <label>¿Tiene debilidad muscular?<br><br><br></label>
-            <p-selectButton formControlName="debilidadMuscular" [options]="stateOptions" [(ngModel)]="value4" optionLabel="label" optionValue="value"></p-selectButton>    
+            <p-selectButton formControlName="debilidadMuscular" [options]="stateOptions" [(ngModel)]="v_debilidad" optionLabel="label" optionValue="value"></p-selectButton>    
           </div>          
         </div>
 

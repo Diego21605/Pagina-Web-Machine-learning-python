@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router'
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -25,21 +24,25 @@ import {RatingModule} from 'primeng/rating';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {InputNumberModule} from 'primeng/inputnumber';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
-import { MessageService } from 'primeng/api';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import {SelectButtonModule} from 'primeng/selectbutton';
+import { PasswordModule } from "primeng/password";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InicioComponent } from './Vistas/inicio/inicio.component';
 import { PrincipalComponent } from './Vistas/principal/principal.component';
 import { SistemaReglasComponent } from './Vistas/sistema-reglas/sistema-reglas.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PrediccionComponent } from './Vistas/prediccion/prediccion.component';
+import { LoginComponent } from './Vistas/login/login.component';
 
 export const routes: Routes = [
-  {path: '', component: PrincipalComponent},
+  {path: '', component: LoginComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'home', component: PrincipalComponent},
   {path: 'sistema-reglas', component: SistemaReglasComponent},
+  {path: 'prediccion', component: PrediccionComponent},
+  
 ];
 
 @NgModule({
@@ -47,8 +50,11 @@ export const routes: Routes = [
     AppComponent,
     InicioComponent,
     PrincipalComponent,
-    SistemaReglasComponent
+    SistemaReglasComponent,
+    PrediccionComponent,
+    LoginComponent,
   ],
+
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -92,6 +98,7 @@ export const routes: Routes = [
     InputTextareaModule,
     ReactiveFormsModule,
     SelectButtonModule,
+    PasswordModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

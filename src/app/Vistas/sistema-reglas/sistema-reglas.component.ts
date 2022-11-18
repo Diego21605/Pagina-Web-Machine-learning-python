@@ -12,11 +12,11 @@ export class SistemaReglasComponent implements OnInit {
   formularioSR !: FormGroup;
   load : boolean = true;
   stateOptions: any[] = [];
-  value1 : number = 0;
-  value2 : number = 0;
-  value3 : number = 0;
-  value4 : number = 0;
-  value5 : number = 0;
+  v_respiratorio : number = 0;
+  v_fatiga : number = 0;
+  v_dolorArticular : number = 0;
+  v_cuelloHinchado : number = 0;
+  v_debilidad : number = 0;
 
   constructor(private frmBuilder : FormBuilder,
                 private sistemaReglasService : SistemaReglasService) {
@@ -32,27 +32,34 @@ export class SistemaReglasComponent implements OnInit {
   ngOnInit(): void {
     this.stateOptions = [
       { label: 'Si', value: 1 },
-      { label: 'No', value: 2 },
+      { label: 'No', value: 0 },
     ];
   }
 
   liumpiarCampos(){
     this.load = true;
-    this.value1 = 0;
-    this.value2 = 0;
-    this.value3 = 0;
-    this.value4 = 0;
-    this.value5 = 0;
+    this.v_respiratorio = 0;
+    this.v_fatiga = 0;
+    this.v_dolorArticular = 0;
+    this.v_cuelloHinchado = 0;
+    this.v_debilidad = 0;
   }
 
   consultar(){
-    console.log(this.value1)
-    console.log(this.value2)
-    console.log(this.value3)
-    console.log(this.value4)
-    console.log(this.value5)
-    this.sistemaReglasService.sistemaReglas(this.value1, this.value2, this.value3, this.value4, this.value5).subscribe(datos_sr => {
-
+    let info : any = {
+      v_repiratorio : this.v_respiratorio,
+      v_fatiga : this.v_fatiga,
+      v_dolor : this.v_dolorArticular,
+      v_cuello : this.v_cuelloHinchado,
+      v_debiliad : this.v_debilidad,
+    }
+    this.sistemaReglasService.prueba(this.v_respiratorio, this.v_fatiga, this.v_dolorArticular, this.v_cuelloHinchado, this.v_debilidad).subscribe(datos =>{
+      for (let i = 0; i < datos.length; i++) {
+        console.log(datos[i])
+      }
+    })
+    this.sistemaReglasService.sistemaReglas(info).subscribe(datos_sr => {
+      console.log(datos_sr)
     });
   }
 

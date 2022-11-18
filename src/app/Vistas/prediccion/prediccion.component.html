@@ -1,0 +1,185 @@
+<app-inicio></app-inicio>
+
+<div class="d-flex justify-content-center overlay" *ngIf="!load">
+    <div class="spinner-border text-danger" role="status" style="margin: auto;">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+</div>
+
+<div class="contain">
+  <div class="container-fluid">
+    <div class="mb-4 Titulo">
+      <h2 class="tituloRojo">Predicción</h2>
+    </div>
+    <div class="mb-4">
+      <hr class="colorLinea">
+    </div>
+
+    <div class="container">
+      <div class="mb-4">
+        <h4 class="tituloRojo">Llenar los campos correspondientes</h4>
+      </div>
+      <!-- Inicio formulario Estado OT -->
+      <form [formGroup]="formularioPrediccion">
+        <div class="row content-questions">
+
+          <!-- Bateria -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>Bateria (mAh) <br><br></label>
+            <p-inputNumber inputId="integeronly" [(ngModel)]="totalBateria">
+            </p-inputNumber>
+          </div>
+
+          <!-- bluetooth -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>Bluetooth<br><br></label>
+            <p-selectButton formControlName="Respiratorio" [options]="stateOptions" [(ngModel)]="bluetooth" optionLabel="label" optionValue="value"></p-selectButton>    
+          </div>
+
+          <!-- Procesador -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>Velocidad del Procesador <br><br></label>
+            <p-inputNumber inputId="integeronly" [(ngModel)]="procesador">
+            </p-inputNumber>
+          </div>
+
+          <!-- Dual Sim -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>Dual Sim<br><br></label>
+            <p-selectButton formControlName="Respiratorio" [options]="stateOptions" [(ngModel)]="dualSim" optionLabel="label" optionValue="value"></p-selectButton>    
+          </div>
+
+          <!-- Mega px camara frontal -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>Mega px Camara Frontal<br><br></label>
+            <p-inputNumber inputId="integeronly" [(ngModel)]="mgPixelesFront">
+            </p-inputNumber>
+          </div>
+
+          <!-- Tecnologia 4G -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>¿Tiene tecnologia 4G?<br><br></label>
+            <p-selectButton formControlName="Respiratorio" [options]="stateOptions" [(ngModel)]="tecnology4G" optionLabel="label" optionValue="value"></p-selectButton>    
+          </div>
+
+          <!-- Memoria Interna en gigabites -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>Memoria Interna en gigabites<br><br></label>
+            <p-inputNumber inputId="integeronly" [(ngModel)]="internalMemory">
+            </p-inputNumber>
+          </div>
+
+          <!-- Profundidad en centimetros -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>Produndiad del Telefono en cm<br><br></label>
+            <p-inputNumber inputId="integeronly" [(ngModel)]="m_dep">
+            </p-inputNumber>
+          </div>
+
+          <!-- Peso del telefono -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>Peso del Telefono en cm<br><br></label>
+            <p-inputNumber inputId="integeronly" [(ngModel)]="peso_Telefono">
+            </p-inputNumber>
+          </div>
+
+          <!-- Numero de nucleos del procesador -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>N° de nucleos del procesador<br><br></label>
+            <p-inputNumber inputId="integeronly" [(ngModel)]="number_cores">
+            </p-inputNumber>
+          </div>
+
+          <!-- mega pixeles camara principal -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>Mega px Camara Principal<br><br></label>
+            <p-inputNumber inputId="integeronly" [(ngModel)]="mgPixelesPrimeary">
+            </p-inputNumber>
+          </div>
+
+          <!-- Altura de resolución de píxeles -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>Altura de resolución de píxeles<br><br></label>
+            <p-inputNumber inputId="integeronly" [(ngModel)]="px_height">
+            </p-inputNumber>
+          </div>
+          
+          <!-- Ancho de resolución de píxeles -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>Ancho de resolución de píxeles<br><br></label>
+            <p-inputNumber inputId="integeronly" [(ngModel)]="px_widht">
+            </p-inputNumber>
+          </div>
+
+          <!-- Memoria ram en gigabites -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>Memoria Ram en gigabites<br><br></label>
+            <p-inputNumber inputId="integeronly" [(ngModel)]="ram_memory">
+            </p-inputNumber>
+          </div>
+
+          <!-- Altura de la pantalla -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>Altura de la pantalla<br><br></label>
+            <p-inputNumber inputId="integeronly" [(ngModel)]="sc_h">
+            </p-inputNumber>
+          </div>
+          
+          <!-- Ancho de la pantalla -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>Ancho de la pantalla<br><br></label>
+            <p-inputNumber inputId="integeronly" [(ngModel)]="sc_w">
+            </p-inputNumber>
+          </div>
+
+          <!-- Ancho de la pantalla -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>Ancho de la pantalla<br><br></label>
+            <p-inputNumber inputId="integeronly" [(ngModel)]="sc_w">
+            </p-inputNumber>
+          </div>
+          
+          <!-- tiempo cargado -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>Tiempo que demora cargado<br><br></label>
+            <p-inputNumber inputId="integeronly" [(ngModel)]="time_charger">
+            </p-inputNumber>
+          </div>
+          
+          <!-- Tiene tecnologia 3G -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>¿Tiene tecnologia 3G?<br><br></label>
+            <p-inputNumber inputId="integeronly" [(ngModel)]="tecnologia_3g">
+            </p-inputNumber>
+          </div>
+
+          <!-- Pantalla tactil -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>¿Tiene pantalla tactil?<br><br></label>
+            <p-selectButton formControlName="Respiratorio" [options]="stateOptions" [(ngModel)]="pantalla_tactil" optionLabel="label" optionValue="value"></p-selectButton>    
+          </div>
+          
+          <!-- Tiene wifi o no -->
+          <div class="field col-12 md:col-3 centrar">
+            <label for="integeronly"><br><br>¿Tiene WIFI?<br><br></label>
+            <p-selectButton formControlName="Respiratorio" [options]="stateOptions" [(ngModel)]="wifi" optionLabel="label" optionValue="value"></p-selectButton>    
+          </div>
+        </div>
+        
+        <!-- Botones para consultar OT -->
+        <div class="mb-3" style="text-align: center; margin-top: 5%;">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button pButton pRipple type="button" class="p-button-raised" style="margin-right: 3%;" (click)="consultar()">Enviar Datos</button>
+            <button pButton pRipple type="button" class="p-button-raised p-button-secondary" (click)="limpiarCampos()">Limpiar campos</button>
+          </div>
+        </div>
+      </form>
+      <!--Fin Formulario -->
+
+      <div class="mb-4">
+        <hr class="colorLinea">
+      </div>  
+    </div>
+  </div>  
+</div>
+  
