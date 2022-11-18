@@ -16,7 +16,7 @@ export class SistemaReglasService {
     return this.http.get<any>(this.ruta + `/get/${v_repiratorio}/${v_fatiga}/${v_dolor}/${v_cuello}/${v_debiliad}`);
   }
 
-  sistemaReglas(info : modelSistemaReglas): Observable<any> {
-    return this.http.post(this.ruta + `/postSistemaReglas`, info);
+  add_Sistemareglas(info : any): Observable<any> {
+    return this.http.post(this.ruta + `/add_Sistemareglas`, info);
   }
 }

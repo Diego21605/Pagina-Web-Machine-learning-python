@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       for (let i = 0; i < datos_usuario.length; i++) {
         if (datos_usuario[i].Contrasena == contrasena) {
           this.storage.set('Usuario', datos_usuario[i].Nombre);
-          this.storage.set('Id_Usuario', id);
+          this.storage.set('Id_Usuario', datos_usuario[i].Id);
           window.location.href = './home';          
         } else Swal.fire(`¡El usuario y la contraseña no coinciden!`);
       }

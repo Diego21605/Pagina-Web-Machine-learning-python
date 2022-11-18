@@ -43,6 +43,7 @@ export class PrediccionComponent implements OnInit {
 
   ngOnInit(): void {
     this.fecha();
+    this.lecturaStorage();
     this.stateOptions = [
       { label: 'Si', value: 1 },
       { label: 'No', value: 0 },
@@ -62,7 +63,7 @@ export class PrediccionComponent implements OnInit {
   
   //Funcion que leerá la informacion que se almacenará en el storage del navegador
   lecturaStorage(){
-    this.usuario_Id = this.storage.get('Id');
+    this.usuario_Id = this.storage.get('Id_Usuario');
   }
 
   limpiarCampos(){
