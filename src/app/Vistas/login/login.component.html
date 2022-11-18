@@ -12,12 +12,12 @@
             <div class="col-12 md:col-4">
                 <div class="p-inputgroup">
                     <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                    <input type="text" pInputText placeholder="Username">         
+                    <input formControlName="User" type="text" pInputText placeholder="Id">         
                 </div>
             </div>
             <br><br>
             
-            <p-password [(ngModel)]="pass" [toggleMask]="true"></p-password>
+            <p-password formControlName="Contrasena" [(ngModel)]="pass" [toggleMask]="true"></p-password>
         </div>
         <!--Boton Ingresar al sistema-->
         <div class="mb-3">

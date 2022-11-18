@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { PrediccionService } from 'src/app/Servicios/prediccion.service';
+import Swal from 'sweetalert2';
+import { Injectable } from '@angular/core';
+import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
 
 @Component({
   selector: 'app-prediccion',
@@ -8,6 +12,8 @@ import { FormGroup } from '@angular/forms';
 })
 export class PrediccionComponent implements OnInit {
 
+  today : any = new Date();
+  usuario_Id : number = 0;
   load : boolean = true;
   formularioPrediccion !: FormGroup;
   stateOptions: any[] = [];
@@ -32,13 +38,31 @@ export class PrediccionComponent implements OnInit {
   pantalla_tactil : number = 0;
   wifi : number = 0;
 
-  constructor() { }
+  constructor(private predictService : PrediccionService,    
+                @Inject(SESSION_STORAGE) private storage: StorageService) { }
 
   ngOnInit(): void {
+    this.fecha();
     this.stateOptions = [
       { label: 'Si', value: 1 },
       { label: 'No', value: 0 },
     ];
+  }
+
+  //Funcion que colocará la fecha actual y la colocará en el campo de fecha de pedido
+  fecha(){
+    this.today = new Date();
+    var dd : any = this.today.getDate();
+    var mm : any = this.today.getMonth() + 1;
+    var yyyy : any = this.today.getFullYear();
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+    this.today = yyyy + '-' + mm + '-' + dd;
+  }
+  
+  //Funcion que leerá la informacion que se almacenará en el storage del navegador
+  lecturaStorage(){
+    this.usuario_Id = this.storage.get('Id');
   }
 
   limpiarCampos(){
@@ -66,6 +90,60 @@ export class PrediccionComponent implements OnInit {
   }
 
   consultar(){
-    
+    let info : any = [
+      this.totalBateria,
+      this.bluetooth ,
+      this.procesador ,
+      this.dualSim ,
+      this.mgPixelesFront ,
+      this.tecnology4G ,
+      this.internalMemory ,
+      this.m_dep ,
+      this.peso_Telefono ,
+      this.number_cores ,
+      this.mgPixelesPrimeary ,
+      this.px_height ,
+      this.px_widht ,
+      this.ram_memory ,
+      this.sc_h ,
+      this.sc_w ,
+      this.time_charger ,
+      this.tecnologia_3g ,
+      this.pantalla_tactil ,
+      this.wifi ,
+    ];
+    this.predictService.getAllTrainPredict(info).subscribe(datos_prediccion => {
+      setTimeout(() => {
+        let data : any = {
+          Fecha : this.today,
+          Usuario_Id : this.usuario_Id,
+          totalBateria : this.totalBateria,
+          bluetooth : this.bluetooth,
+          procesador : this.procesador,
+          dualSim : this.dualSim,
+          mgPixelesFront : this.mgPixelesFront,
+          tecnology4G : this.tecnology4G,
+          internalMemory : this.internalMemory,
+          m_depp : this.m_dep,
+          peso_Telefono : this.peso_Telefono,
+          number_cores : this.number_cores,
+          mgPixelesPrimeary : this.mgPixelesPrimeary,
+          px_height : this.px_height,
+          px_widht : this.px_widht,
+          ram_memory : this.ram_memory,
+          sc_h : this.sc_h,
+          sc_w : this.sc_w,
+          time_charger : this.time_charger,
+          tecnologia_3g : this.tecnologia_3g,
+          pantalla_tactil : this.pantalla_tactil,
+          wifi : this.wifi,
+          Precio : 1,
+        }
+        this.predictService.add_Predict(data).subscribe(datos => {
+          Swal.fire(datos.informacion);
+          this.limpiarCampos();
+        }, error => Swal.fire(error.informacion));
+      }, 3000);
+    });
   }
 }
