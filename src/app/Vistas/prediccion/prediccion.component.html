@@ -20,7 +20,6 @@
         <h4 class="tituloRojo">Llenar los campos correspondientes</h4>
       </div>
       <!-- Inicio formulario Estado OT -->
-      <form [formGroup]="formularioPrediccion">
         <div class="row content-questions">
 
           <!-- Bateria -->
@@ -33,7 +32,7 @@
           <!-- bluetooth -->
           <div class="field col-12 md:col-3 centrar">
             <label for="integeronly"><br><br>Bluetooth<br><br></label>
-            <p-selectButton formControlName="Respiratorio" [options]="stateOptions" [(ngModel)]="bluetooth" optionLabel="label" optionValue="value"></p-selectButton>    
+            <p-selectButton [options]="stateOptions" [(ngModel)]="bluetooth" optionLabel="label" optionValue="value"></p-selectButton>    
           </div>
 
           <!-- Procesador -->
@@ -46,7 +45,7 @@
           <!-- Dual Sim -->
           <div class="field col-12 md:col-3 centrar">
             <label for="integeronly"><br><br>Dual Sim<br><br></label>
-            <p-selectButton formControlName="Respiratorio" [options]="stateOptions" [(ngModel)]="dualSim" optionLabel="label" optionValue="value"></p-selectButton>    
+            <p-selectButton  [options]="stateOptions" [(ngModel)]="dualSim" optionLabel="label" optionValue="value"></p-selectButton>    
           </div>
 
           <!-- Mega px camara frontal -->
@@ -59,7 +58,7 @@
           <!-- Tecnologia 4G -->
           <div class="field col-12 md:col-3 centrar">
             <label for="integeronly"><br><br>¿Tiene tecnologia 4G?<br><br></label>
-            <p-selectButton formControlName="Respiratorio" [options]="stateOptions" [(ngModel)]="tecnology4G" optionLabel="label" optionValue="value"></p-selectButton>    
+            <p-selectButton  [options]="stateOptions" [(ngModel)]="tecnology4G" optionLabel="label" optionValue="value"></p-selectButton>    
           </div>
 
           <!-- Memoria Interna en gigabites -->
@@ -149,19 +148,19 @@
           <!-- Tiene tecnologia 3G -->
           <div class="field col-12 md:col-3 centrar">
             <label for="integeronly"><br><br>¿Tiene tecnologia 3G?<br><br></label>
-            <p-selectButton formControlName="Respiratorio" [options]="stateOptions" [(ngModel)]="tecnologia_3g" optionLabel="label" optionValue="value"></p-selectButton>    
+            <p-selectButton  [options]="stateOptions" [(ngModel)]="tecnologia_3g" optionLabel="label" optionValue="value"></p-selectButton>    
           </div>
 
           <!-- Pantalla tactil -->
           <div class="field col-12 md:col-3 centrar">
             <label for="integeronly"><br><br>¿Tiene pantalla tactil?<br><br></label>
-            <p-selectButton formControlName="Respiratorio" [options]="stateOptions" [(ngModel)]="pantalla_tactil" optionLabel="label" optionValue="value"></p-selectButton>    
+            <p-selectButton  [options]="stateOptions" [(ngModel)]="pantalla_tactil" optionLabel="label" optionValue="value"></p-selectButton>    
           </div>
           
           <!-- Tiene wifi o no -->
           <div class="field col-12 md:col-3 centrar">
             <label for="integeronly"><br><br>¿Tiene WIFI?<br><br></label>
-            <p-selectButton formControlName="Respiratorio" [options]="stateOptions" [(ngModel)]="wifi" optionLabel="label" optionValue="value"></p-selectButton>    
+            <p-selectButton  [options]="stateOptions" [(ngModel)]="wifi" optionLabel="label" optionValue="value"></p-selectButton>    
           </div>
         </div>
         
@@ -172,7 +171,6 @@
             <button pButton pRipple type="button" class="p-button-raised p-button-secondary" (click)="limpiarCampos()">Limpiar campos</button>
           </div>
         </div>
-      </form>
       <!--Fin Formulario -->
 
       <div class="mb-4">

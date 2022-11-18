@@ -91,38 +91,42 @@ export class PrediccionComponent implements OnInit {
   }
 
   consultar(){
+    let precio : number;
     this.predictService.getAllTrainPredict(this.totalBateria, this.bluetooth, this.procesador, this.dualSim, this.mgPixelesFront, this.tecnology4G, this.internalMemory, this.m_dep, this.peso_Telefono, this.number_cores, this.mgPixelesPrimeary, this.px_height, this.px_widht, this.ram_memory, this.sc_h, this.sc_w, this.time_charger, this.tecnologia_3g, this.pantalla_tactil, this.wifi).subscribe(datos_prediccion => {
-      setTimeout(() => {
-        let data : any = {
-          Fecha : this.today,
-          Usuario_Id : this.usuario_Id,
-          totalBateria : this.totalBateria,
-          bluetooth : this.bluetooth,
-          procesador : this.procesador,
-          dualSim : this.dualSim,
-          mgPixelesFront : this.mgPixelesFront,
-          tecnology4G : this.tecnology4G,
-          internalMemory : this.internalMemory,
-          m_depp : this.m_dep,
-          peso_Telefono : this.peso_Telefono,
-          number_cores : this.number_cores,
-          mgPixelesPrimeary : this.mgPixelesPrimeary,
-          px_height : this.px_height,
-          px_widht : this.px_widht,
-          ram_memory : this.ram_memory,
-          sc_h : this.sc_h,
-          sc_w : this.sc_w,
-          time_charger : this.time_charger,
-          tecnologia_3g : this.tecnologia_3g,
-          pantalla_tactil : this.pantalla_tactil,
-          wifi : this.wifi,
-          Precio : 1,
-        }
-        this.predictService.add_Predict(data).subscribe(datos => {
-          Swal.fire(`${datos_prediccion} `+datos.informacion);
-          this.limpiarCampos();
-        }, error => Swal.fire(error.informacion));
-      }, 3000);
-    });
+        if (datos_prediccion.informacion == 'El costó será : Low Cost') precio = 1;
+        if (datos_prediccion.informacion == 'El costó será : Medium Cost') precio = 2;
+        if (datos_prediccion.informacion == 'El costó será : High Cost') precio = 3;
+        if (datos_prediccion.informacion == 'El costó será : Very High Cost') precio = 4;
+        setTimeout(() => {
+          let data : any = {
+            Fecha : this.today,
+            Usuario_Id : this.usuario_Id,
+            totalBateria : this.totalBateria,
+            bluetooth : this.bluetooth,
+            procesador : this.procesador,
+            dualSim : this.dualSim,
+            mgPixelesFront : this.mgPixelesFront,
+            tecnology4G : this.tecnology4G,
+            internalMemory : this.internalMemory,
+            m_depp : this.m_dep,
+            peso_Telefono : this.peso_Telefono,
+            number_cores : this.number_cores,
+            mgPixelesPrimeary : this.mgPixelesPrimeary,
+            px_height : this.px_height,
+            px_widht : this.px_widht,
+            ram_memory : this.ram_memory,
+            sc_h : this.sc_h,
+            sc_w : this.sc_w,
+            time_charger : this.time_charger,
+            tecnologia_3g : this.tecnologia_3g,
+            pantalla_tactil : this.pantalla_tactil,
+            wifi : this.wifi,
+            Precio : precio,
+          }
+          this.predictService.add_Predict(data).subscribe(datos => {
+            Swal.fire(`${datos_prediccion.informacion} - - `+datos.informacion);
+          }, error => {Swal.fire("Error al guardar los datos de la predicción")});          
+        }, 1000);
+    }, error => { Swal.fire("Error al hacer la predicción"); });
   }
 }
